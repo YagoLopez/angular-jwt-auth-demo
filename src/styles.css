@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+.btn-margin {
+  margin: 5px;
+}
+
+.jumbotron {
+  padding-top: 100px;
+}

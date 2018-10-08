@@ -1,0 +1,64 @@
+// Http testing module and mocking controller
+import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
+
+// Other imports
+import {TestBed} from '@angular/core/testing';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+
+const user = {
+  id: 1,
+  firstName: 'firstName1',
+  lastName: 'lastName1',
+  email: 'username1@domain.com',
+  password: 'password1',
+  role: 'Administrator'
+};
+const testUrl = environment.apiUrl;
+
+describe('Mockup Backend Interceptor', () => {
+
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: []
+    });
+
+    // Inject the http service and test controller for each test
+    httpClient = TestBed.get(HttpClient);
+    httpTestingController = TestBed.get(HttpTestingController);
+  });
+
+  it('Test Mockup Register Http Call', () => {
+    // const testData: Data = {name: 'Test Data'};
+
+    // Make an HTTP POST request
+debugger
+    httpClient.post<any>(testUrl + '/users/register', user)
+      .subscribe(data => {
+debugger
+        // When observable resolves, result should match test data
+        console.log('data', data);
+        expect(true).toBe(false);
+      });
+
+    // The following `expectOne()` will match the request's URL.
+    // If no requests or multiple requests matched that URL
+    // `expectOne()` would throw.
+    const req = httpTestingController.expectOne(testUrl + '/users/register');
+
+    // Assert that the request is a GET.
+    // expect(req.request.method).toEqual('GET');
+
+    // Respond with mock data, causing Observable to resolve.
+    // Subscribe callback asserts that correct data was returned.
+    // req.flush(testData);
+
+    // Finally, assert that there are no outstanding requests.
+    httpTestingController.verify();
+  });
+
+});

@@ -1,0 +1,16 @@
+﻿<style>
+  .alert-container {
+    position: absolute;
+    width: 70%;
+    text-align: center;
+    margin: 10px 15%;
+  }
+</style>
+<div *ngIf="message" class="alert-container"
+     [ngClass]="{
+        'alert': message,
+        'alert-success': message.type === 'success',
+        'alert-danger': message.type === 'error'
+        }">
+  {{message.text}}
+</div>

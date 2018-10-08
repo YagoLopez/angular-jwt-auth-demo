@@ -121,6 +121,46 @@
           }
         }
       }
+    },
+    "angular-jwt-auth": {
+      "root": "projects/angular-jwt-auth",
+      "sourceRoot": "projects/angular-jwt-auth/src",
+      "projectType": "library",
+      "prefix": "angular-jwt-auth",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/angular-jwt-auth/tsconfig.lib.json",
+            "project": "projects/angular-jwt-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/angular-jwt-auth/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/angular-jwt-auth/src/test.ts",
+            "tsConfig": "projects/angular-jwt-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/angular-jwt-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/angular-jwt-auth/tsconfig.lib.json",
+              "projects/angular-jwt-auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular-jwt-auth-demo"
