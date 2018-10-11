@@ -25,5 +25,9 @@
         "dist/angular-jwt-auth/*"
       ]
     }
-  }
+  },
+  "exclude": [
+    "test.ts",
+    "wallabyTest.ts"
+  ]
 }

@@ -12,7 +12,7 @@ export const BASE_URL = {
  * Check if localStorage is available in browser
  * Local storage is needed to hold logged in user with JWT token
  */
-const isLocalStorageAvailable = (): boolean => {
+export const isLocalStorageAvailable = (): boolean => {
   const test = 'test';
   try {
     localStorage.setItem(test, 'test');
@@ -26,11 +26,7 @@ const isLocalStorageAvailable = (): boolean => {
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) {
-    if (!isLocalStorageAvailable()) {
-      throw new Error('Error. Local Storage unavailable');
-    }
-  }
+  constructor(private http: HttpClient) { }
 
   login(email: string, password: string): Observable<User> {
     return this.http.post<User>(

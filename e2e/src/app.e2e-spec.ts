@@ -1,4 +1,5 @@
 import { AppPage } from './app.po';
+import {browser} from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -9,6 +10,6 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to angular-jwt-auth-demo!');
+    expect(page.getParagraphText()).toEqual('Please sign in');
   });
 });

@@ -1,4 +1,4 @@
-// todo: use a real jwt
+// todo: use real jwt
 // todo: implement http logger: https://angular.io/guide/http#logging
 
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';

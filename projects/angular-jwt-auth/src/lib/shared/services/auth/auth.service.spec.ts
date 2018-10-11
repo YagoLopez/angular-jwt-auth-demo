@@ -5,17 +5,17 @@ import {AuthService} from './auth.service';
 import {MockupBackendInterceptor} from '../../interceptors/mockup.backend.interceptor';
 import {JwtInterceptor} from './jwt.interceptor';
 
-describe('• Authorization Service', () => {
+let authService: AuthService;
+const registeredUsers = [{
+  id: 1,
+  firstName: 'firstName1',
+  lastName: 'lastName1',
+  email: 'username1@domain.com',
+  password: 'password1',
+  role: 'admin'
+}];
 
-  let authService: AuthService;
-  const registeredUsers = [{
-    id: 1,
-    firstName: 'firstName1',
-    lastName: 'lastName1',
-    email: 'username1@domain.com',
-    password: 'password1',
-    role: 'admin'
-  }];
+describe('• Authorization Service', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,7 +27,7 @@ describe('• Authorization Service', () => {
       ]
     });
     authService = TestBed.get(AuthService);
-    // Simulate registered users for testing writing them to localStorage
+    // Simulate registered users for testing, writing them to localStorage
     localStorage.setItem('users', JSON.stringify(registeredUsers));
   });
 
@@ -72,7 +72,7 @@ describe('• Authorization Service', () => {
     expect(localStorage.getItem('loggedinUser')).toBe(null);
   });
 
-  afterEach(() => {
+  afterAll(() => {
     localStorage.clear();
   });
 

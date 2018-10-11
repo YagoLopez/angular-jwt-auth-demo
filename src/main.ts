@@ -4,6 +4,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { Role } from '../projects/angular-jwt-auth/src/lib/shared/models/user';
+import {isLocalStorageAvailable} from "../projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service";
 
 const createRegisteredUsers = () => {
   const users = [];
@@ -31,8 +32,12 @@ const createRegisteredUsers = () => {
 if (environment.production) {
   enableProdMode();
 } else {
-  localStorage.clear();
-  createRegisteredUsers();
+  if (isLocalStorageAvailable()) {
+    localStorage.clear();
+    createRegisteredUsers();
+  } else {
+    throw new Error('Local Storage unavailable');
+  }
 }
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));

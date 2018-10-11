@@ -1,34 +1,32 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
 
-describe('AppComponent', () => {
+describe('• AppComponent', () => {
+
+  let appFixture: ComponentFixture<AppComponent>;
+  let appComponent: AppComponent;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent]
     });
+    appFixture = TestBed.createComponent(AppComponent);
+    appComponent = appFixture.debugElement.componentInstance;
   });
 
-    it('should create the app', async(() => {
-      const fixture = TestBed.createComponent(AppComponent);
-      const app = fixture.debugElement.componentInstance;
-      expect(app).toBeTruthy();
-    }));
+  it('should create the app', async(() => {
+    expect(appComponent).toBeTruthy();
+  }));
 
-    /*
   it(`should have as title 'angular-jwt-auth-demo'`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-jwt-auth-demo');
+    expect(appComponent.title).toEqual('angular-jwt-auth-demo');
   }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to angular-jwt-auth-demo!');
+
+  it('should have router outlet', (() => {
+    const appTemplate = appFixture.debugElement.nativeElement;
+    expect(appTemplate.querySelector('router-outlet')).toBeDefined();
   }));
-*/
 
 });

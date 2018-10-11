@@ -6,13 +6,13 @@
   HttpInterceptor,
 } from '@angular/common/http';
 import {Observable, of, throwError} from 'rxjs';
+import {User} from '../models/user';
 
 export class MockupBackendInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // get registered users from array in local storage
-    // todo: tipo User[] en vez de tipo any[]
-    const registeredUsers: any[] = JSON.parse(localStorage.getItem('users')) || [];
+    const registeredUsers: User[] = JSON.parse(localStorage.getItem('users')) || [];
 
     // todo: simulate response delay
 
@@ -26,7 +26,7 @@ export class MockupBackendInterceptor implements HttpInterceptor {
       }).length;
       // todo: create fn to check duplicated users
       if (duplicatedUser) {
-        return throwError({error: {message: 'Email "' + newUser.email + '" is already taken'}});
+        return throwError({error: {message: 'Email ' + newUser.email + ' is already taken'}});
       } else {
         // save new user
         newUser.id = registeredUsers.length + 1;
@@ -81,7 +81,7 @@ export class MockupBackendInterceptor implements HttpInterceptor {
         // find user by id in users array
         const urlParts = request.url.split('/');
         const id = parseInt(urlParts[urlParts.length - 1], 10);
-        const matchedUsers = registeredUsers.filter(user => {
+        const matchedUsers = registeredUsers.filter(user => { // tslint:disable-line
           return user.id === id;
         });
         const user = matchedUsers.length ? matchedUsers[0] : null;
