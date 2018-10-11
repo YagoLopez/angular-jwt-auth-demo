@@ -2,12 +2,22 @@
 
 describe('Login Page', () => {
 
+  let inputEmail: any;
+
   before(() => {
     cy.visit('http://localhost:4200/login');
   });
 
   describe('User not registered', () => {
     it('should show validation errors with invalid email and password', () => {
+
+      cy.get('input#inputEmail').then((res) => {
+        inputEmail = res;
+      });
+
+      debugger
+      console.log(inputEmail);
+
       cy.get('input#inputEmail').clear();
       cy.get('input#inputPassword').clear();
       cy.get('button.btn').click();

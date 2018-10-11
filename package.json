@@ -8,7 +8,6 @@
     "test-angular-jwt-demo-app": "ng test angular-jwt-auth-demo",
     "test-angular-jwt-auth-library": "ng test angular-jwt-auth",
     "lint": "ng lint",
-    "e2e": "ng e2e",
     "cypress": "./node_modules/.bin/cypress open"
   },
   "private": true,
@@ -46,7 +45,6 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
-    "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",
