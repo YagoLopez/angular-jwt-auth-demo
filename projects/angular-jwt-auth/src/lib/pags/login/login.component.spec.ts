@@ -35,7 +35,6 @@ describe('• LoginComponent', () => {
   //   inputEmail.value = 'xxxx';
   //   submitButton.click();
   //   loginComponent.onSubmit();
-  //   debugger;
   //   console.log(submitButton);
   // });
 

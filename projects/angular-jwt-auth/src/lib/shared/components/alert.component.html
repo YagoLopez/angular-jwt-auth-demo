@@ -1,11 +1,31 @@
 ﻿<style>
   .alert-container {
     position: absolute;
-    width: 70%;
+    width: 100%;
     text-align: center;
-    margin: 10px 15%;
+    border-radius: 0;
+    z-index: 1;
+    /*margin: 10px 15%;*/
+  }
+  .btn-close-alert {
+    font-weight: bold;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+    margin-top: -3px;
+    border: 1px solid #c89ca0;
+    color: #c89ca0;
+    padding-bottom: 5px;
+  }
+  .btn-close-alert:hover {
+    background-color: #ff2626;
+    transition: 300ms;
   }
 </style>
+
 <div *ngIf="message" class="alert-container"
      [ngClass]="{
         'alert': message,
@@ -13,4 +33,5 @@
         'alert-danger': message.type === 'error'
         }">
   {{message.text}}
+  <span class="btn-close-alert" (click)="onCloseBtn()" aria-label="Close" title="Close">x</span>
 </div>

@@ -4,6 +4,7 @@ import {Subscription} from 'rxjs';
 import {AlertService} from './alert.service';
 
 @Component({
+  // tslint:disable-next-line
   selector: 'angular-jwt-auth-alert',
   templateUrl: 'alert.component.html'
 })
@@ -12,13 +13,16 @@ export class AlertComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
   message: any;
 
-  constructor(private alertService: AlertService) {
-  }
+  constructor(private alertService: AlertService) {}
 
   ngOnInit() {
     this.subscription = this.alertService.getMessage().subscribe(message => {
       this.message = message;
     });
+  }
+
+  onCloseBtn() {
+    this.message = null;
   }
 
   ngOnDestroy() {

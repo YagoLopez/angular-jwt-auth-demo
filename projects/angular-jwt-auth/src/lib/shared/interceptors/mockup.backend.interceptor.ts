@@ -26,7 +26,7 @@ export class MockupBackendInterceptor implements HttpInterceptor {
       }).length;
       // todo: create fn to check duplicated users
       if (duplicatedUser) {
-        return throwError({error: {message: 'Email ' + newUser.email + ' is already taken'}});
+        return throwError({error: {message: 'Email: ' + newUser.email + ' is already taken'}});
       } else {
         // save new user
         newUser.id = registeredUsers.length + 1;

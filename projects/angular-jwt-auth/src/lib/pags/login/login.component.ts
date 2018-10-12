@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
+  PASS_MIN_LENGTH = 6;
 
   constructor(private formBuilder: FormBuilder,
               private route: ActivatedRoute,
@@ -24,8 +25,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      email: ['username1@domain.com', Validators.required],
-      password: ['password1', Validators.required]
+      email: ['username1@domain.com', [Validators.required, Validators.email]],
+      password: ['password1', [Validators.required, Validators.minLength(this.PASS_MIN_LENGTH)]]
     });
 
     // reset login status
@@ -49,7 +50,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login(this.f.email.value, this.f.password.value)
+    const email = this.loginForm.controls.email.value;
+    const password = this.loginForm.controls.password.value;
+    this.authService.login(email, password)
       .subscribe(
         data => {
           this.router.navigate([this.returnUrl]);

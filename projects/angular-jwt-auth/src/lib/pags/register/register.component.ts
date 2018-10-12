@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   loading = false;
   submitted = false;
+  PASS_MIN_LENGTH = 6;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -27,8 +28,8 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       firstName: ['firstName1', Validators.required],
       lastName: ['lastName1', Validators.required],
-      email: ['username1@domain.com', Validators.required],
-      password: ['password1', [Validators.required, Validators.minLength(6)]],
+      email: ['username1@domain.com', [Validators.required, Validators.email]],
+      password: ['password1', [Validators.required, Validators.minLength(this.PASS_MIN_LENGTH)]],
       role: Role.Administrator
     });
   }
@@ -61,6 +62,7 @@ export class RegisterComponent implements OnInit {
         error => {
           this.alertService.error(error);
           this.loading = false;
+          window.scrollTo(0, 0);
         });
   }
 }
