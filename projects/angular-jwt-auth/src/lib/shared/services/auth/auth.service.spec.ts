@@ -2,10 +2,12 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {TestBed} from '@angular/core/testing';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthService} from './auth.service';
+import {AlertService} from '../../components/alert.service';
 import {MockupBackendInterceptor} from '../../interceptors/mockup.backend.interceptor';
 import {JwtInterceptor} from './jwt.interceptor';
 
 let authService: AuthService;
+
 const registeredUsers = [{
   id: 1,
   firstName: 'firstName1',
@@ -22,6 +24,7 @@ describe('• Authorization Service', () => {
       imports: [HttpClientTestingModule],
       providers: [
         AuthService,
+        AlertService,
         {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
         {provide: HTTP_INTERCEPTORS, useClass: MockupBackendInterceptor, multi: true}
       ]

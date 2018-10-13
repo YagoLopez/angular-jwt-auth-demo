@@ -56,12 +56,12 @@ export class RegisterComponent implements OnInit {
           this.authService.login(email, password)
             .subscribe(
               data => {
-                this.alertService.setMessage({type: 'success', message: 'Login successful'});
+                this.alertService.setMessage({type: 'success', message: 'Login successful', keepAfterNavigation: true});
                 this.router.navigate(['/dashboard']);
               });
         },
         error => {
-          this.alertService.setMessage({type: 'error', message: error});
+          this.alertService.setMessage({type: 'error', message: error, keepAfterNavigation: false});
           this.loading = false;
           window.scrollTo(0, 0);
         });

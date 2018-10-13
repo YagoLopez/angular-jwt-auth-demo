@@ -1,6 +1,5 @@
-﻿import {Component, OnInit, OnDestroy} from '@angular/core';
-import {Subscription} from 'rxjs';
-import {AlertService, AlertServiceMessage} from './alert.service';
+﻿import {Component, OnInit} from '@angular/core';
+import {AlertService} from './alert.service';
 
 @Component({
   // tslint:disable-next-line
@@ -8,34 +7,19 @@ import {AlertService, AlertServiceMessage} from './alert.service';
   templateUrl: 'alert.component.html'
 })
 
-export class AlertComponent implements OnInit, OnDestroy {
-  // private subscription: Subscription;
-  // message: AlertServiceMessage;
+export class AlertComponent implements OnInit {
 
-  constructor(private alertService: AlertService) { }
+  constructor(private alertService: AlertService) {}
 
   ngOnInit() {
-    // this.subscription = this.alertService.getMessage().subscribe(message => {
-    //   this.message = message;
-    //   console.log('message', message);
-    // });
-    // this.message = this.alertService.alertServiceMessage2;
-    // console.log('alert component on init, message:', this.message);
-debugger
     const alertService = this.alertService;
-    if (alertService.getMessage() && alertService.getMessage().type === 'error') {
+    if (alertService.getMessage() && !alertService.getMessage().keepAfterNavigation) {
       alertService.setMessage(null);
     }
-    console.log('alert component on init. alert message: ', this.alertService.alertServiceMessage);
   }
 
   onCloseBtn() {
-    // this.message = null;
-  }
-
-
-  ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    this.alertService.setMessage(null);
   }
 
   getAlertMessage() {
