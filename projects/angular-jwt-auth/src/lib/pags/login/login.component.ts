@@ -1,8 +1,9 @@
-﻿import {Component, OnInit} from '@angular/core';
+﻿import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router, ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertService} from '../../shared/components/alert.service';
 import {AuthService} from '../../shared/services/auth/auth.service';
+import {AlertComponent} from '../../shared/components/alert.component';
 
 @Component({
   // tslint:disable-next-line
@@ -58,7 +59,9 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         error => {
-          this.alertService.error(error);
+          // this.alertService.error(error);
+debugger
+          this.alertService.setMessage({type: 'error', message: error});
           this.loading = false;
         });
   }

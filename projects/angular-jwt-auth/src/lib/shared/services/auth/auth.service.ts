@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {tap} from 'rxjs/operators';
 import {User} from '../../models/user';
+import {AlertService} from '../../components/alert.service';
 
 export const BASE_URL = {
   apiUrl: 'http://localhost:4000'
@@ -26,7 +27,7 @@ export const isLocalStorageAvailable = (): boolean => {
 @Injectable()
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertService: AlertService) { }
 
   login(email: string, password: string): Observable<User> {
     return this.http.post<User>(
@@ -48,6 +49,7 @@ export class AuthService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('loggedinUser');
+    this.alertService.setMessage(null);
   }
 
   isUserLoggedIn() {

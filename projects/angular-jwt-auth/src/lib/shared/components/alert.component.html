@@ -26,6 +26,7 @@
   }
 </style>
 
+<!--
 <div *ngIf="message" class="alert-container"
      [ngClass]="{
         'alert': message,
@@ -35,15 +36,8 @@
   {{message.text}}
   <span class="btn-close-alert" (click)="onCloseBtn()" aria-label="Close" title="Close">x</span>
 </div>
-<!--
+-->
 <div>ALERT COMPONENT</div>
-<div *ngIf="message">
-  message: {{message|json}}
-</div>
--->
-<!--
-<div>
-  <div>message: {{message|json}}</div>
-  <div>message.type: {{message.type}}</div>
-</div>
--->
+<!--<div *ngIf="message">-->
+  message: {{getAlertMessage() | json}}
+<!--</div>-->
