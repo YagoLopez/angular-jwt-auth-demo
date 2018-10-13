@@ -1,6 +1,4 @@
-﻿// todo: selectbox for roles
-
-import {Component, OnInit, ViewChild} from '@angular/core';
+﻿import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertService} from '../../shared/components/alert.service';
@@ -56,12 +54,12 @@ export class RegisterComponent implements OnInit {
           this.authService.login(email, password)
             .subscribe(
               data => {
-                this.alertService.setMessage({type: 'success', message: 'Login successful', keepAfterNavigation: true});
+                this.alertService.setMessage({type: 'success', text: 'Login successful', keepAfterNavigation: true});
                 this.router.navigate(['/dashboard']);
               });
         },
         error => {
-          this.alertService.setMessage({type: 'error', message: error, keepAfterNavigation: false});
+          this.alertService.setMessage({type: 'error', text: error, keepAfterNavigation: false});
           this.loading = false;
           window.scrollTo(0, 0);
         });

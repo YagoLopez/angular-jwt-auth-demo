@@ -1,4 +1,8 @@
 ﻿<style>
+  .alert {
+    padding: .75rem 4.25rem;
+    margin-bottom: 0;
+  }
   .alert-container {
     position: absolute;
     width: 100%;
@@ -16,26 +20,21 @@
     padding-right: 10px;
     border-radius: 5px;
     margin-top: -3px;
-    border: 1px solid #c89ca0;
-    color: #c89ca0;
+    border: 1px solid darkgrey;
+    color: darkgrey;
     padding-bottom: 5px;
   }
   .btn-close-alert:hover {
-    background-color: #ff2626;
+    background-color: dimgrey;
     transition: 300ms;
   }
 </style>
 
-<div *ngIf="getAlertMessage()" class="alert-container"
+<div *ngIf="getAlertMessage()" class="alert-container alert"
      [ngClass]="{
-        'alert': getAlertMessage(),
         'alert-success': getAlertMessage().type === 'success',
         'alert-danger': getAlertMessage().type === 'error'
         }">
-  {{ getAlertMessage().message }}
-  <span class="btn-close-alert" (click)="onCloseBtn()" aria-label="Close" title="Close">x</span>
+  {{ getAlertMessage().text }}
+    <span class="btn-close-alert" (click)="onCloseBtn()" aria-label="Close" title="Close">x</span>
 </div>
-<!--<div>ALERT COMPONENT</div>-->
-<!--<div *ngIf="message">-->
-  <!--message: {{getAlertMessage() | json}}-->
-<!--</div>-->

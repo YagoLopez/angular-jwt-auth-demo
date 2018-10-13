@@ -1,5 +1,5 @@
 ﻿import {Component, OnInit} from '@angular/core';
-import {AlertService} from './alert.service';
+import {AlertService, AlertMessage} from './alert.service';
 
 @Component({
   // tslint:disable-next-line
@@ -23,10 +23,10 @@ export class AlertComponent implements OnInit {
   }
 
   getAlertMessage() {
-    return this.alertService.alertServiceMessage;
+    return this.alertService.alertMessage;
   }
 
-  setAlertMessage(message: any) {
-    this.alertService.alertServiceMessage = message;
+  setAlertMessage(message: AlertMessage) {
+    this.alertService.alertMessage = message;
   }
 }

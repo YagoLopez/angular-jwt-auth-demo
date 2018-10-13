@@ -1,20 +1,18 @@
-﻿import {Injectable} from '@angular/core';
-
-export interface AlertServiceMessage {
+﻿
+export interface AlertMessage {
   type: 'error' | 'success';
-  message: string;
+  text: string;
   keepAfterNavigation: boolean;
 }
 export class AlertService {
 
-  // todo: usar getter y setter
-  alertServiceMessage: AlertServiceMessage;
+  alertMessage: AlertMessage;
 
   getMessage() {
-    return this.alertServiceMessage;
+    return this.alertMessage;
   }
 
-  setMessage(message: AlertServiceMessage) {
-    this.alertServiceMessage = message;
+  setMessage(message: AlertMessage) {
+    this.alertMessage = message;
   }
 }
