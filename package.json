@@ -4,11 +4,15 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o",
-    "build": "ng build",
-    "test-angular-jwt-demo-app": "ng test angular-jwt-auth-demo",
-    "test-angular-jwt-auth-library": "ng test angular-jwt-auth",
+    "copy-lib-assets": "cpx ./src/assets/**/* ./dist/angular-jwt-auth/assets",
+    "build-app": "ng build",
+    "build-lib": "ng build angular-jwt-auth",
+    "build-lib-with-assets": "npm run build-lib && npm run copy-lib-assets",
+    "build-lib-watch": "ng build angular-jwt-auth --watch",
+    "test-app": "ng test angular-jwt-auth-demo",
+    "test-lib": "ng test angular-jwt-auth",
     "lint": "ng lint",
-    "cypress": "./node_modules/.bin/cypress open"
+    "cypress-test": "./node_modules/.bin/cypress open"
   },
   "private": true,
   "dependencies": {
@@ -36,6 +40,7 @@
     "@types/node": "~8.9.4",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "~4.2.1",
+    "cpx": "^1.5.0",
     "cypress": "^3.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",

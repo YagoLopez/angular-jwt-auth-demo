@@ -2,7 +2,6 @@
 import {AlertService, AlertMessage} from './alert.service';
 
 @Component({
-  // tslint:disable-next-line
   selector: 'angular-jwt-auth-alert',
   templateUrl: 'alert.component.html'
 })

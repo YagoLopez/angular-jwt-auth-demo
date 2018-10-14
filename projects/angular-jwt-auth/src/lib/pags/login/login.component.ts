@@ -5,7 +5,6 @@ import {AlertService} from '../../shared/components/alert.service';
 import {AuthService} from '../../shared/services/auth/auth.service';
 
 @Component({
-  // tslint:disable-next-line
   selector: 'angular-jwt-auth-login',
   templateUrl: 'login.component.html'
 })

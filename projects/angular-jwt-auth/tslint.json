@@ -4,13 +4,13 @@
         "directive-selector": [
             true,
             "attribute",
-            "lib",
+            "angular-jwt-auth",
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
-            "lib",
+            "angular-jwt-auth",
             "kebab-case"
         ]
     }
