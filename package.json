@@ -16,7 +16,7 @@
     "e2e": "run-p serve cypress",
     "cypress": "./node_modules/.bin/cypress open",
     "cypress-record-video": "cypress run --record --key 818feff0-23f3-4e94-8af8-60cf250b63ef",
-    "coverage": "ng test angular-jwt-auth --watch=false --code-coverage && http-server -o",
+    "coverage": "ng test angular-jwt-auth --watch=false --code-coverage",
     "lint": "ng lint"
   },
   "private": true,
