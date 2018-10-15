@@ -1,9 +1,4 @@
-﻿// todo: revisar roles
-
-export enum Role {
-  Administrator = 'Administrator',
-  Developer = 'Developer'
-}
+﻿import { Role } from './role';
 
 export class User {
   id: number;

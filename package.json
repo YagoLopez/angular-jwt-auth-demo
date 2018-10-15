@@ -3,16 +3,21 @@
   "version": "0.0.1",
   "scripts": {
     "ng": "ng",
+    "serve": "ng serve",
     "start": "ng serve -o",
     "copy-lib-assets": "cpx ./src/assets/**/* ./dist/angular-jwt-auth/assets",
     "build-app": "ng build",
     "build-lib": "ng build angular-jwt-auth",
     "build-lib-with-assets": "npm run build-lib && npm run copy-lib-assets",
+    "build-lib-with-assets2": "run-s build-lib copy-lib-assets",
     "build-lib-watch": "ng build angular-jwt-auth --watch",
     "test-app": "ng test angular-jwt-auth-demo",
     "test-lib": "ng test angular-jwt-auth",
-    "lint": "ng lint",
-    "cypress-test": "./node_modules/.bin/cypress open"
+    "e2e": "run-p serve cypress",
+    "cypress": "./node_modules/.bin/cypress open",
+    "cypress-record-video": "cypress run --record --key 818feff0-23f3-4e94-8af8-60cf250b63ef",
+    "coverage": "ng test angular-jwt-auth --watch=false --code-coverage && http-server -o",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -50,6 +55,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
     "ng-packagr": "^4.2.0",
+    "npm-run-all": "^4.1.3",
     "ts-node": "~5.0.1",
     "tsickle": ">=0.29.0",
     "tslib": "^1.9.0",

@@ -8,7 +8,7 @@ describe('Login Page', () => {
     cy.get('input#inputPassword').clear();
   });
 
-  describe('User not registered', () => {
+  describe('Unregistered user', () => {
     it('Should show validation error with empty email', () => {
       cy.get('input#inputPassword').type('password');
       cy.get('button.btn').click();

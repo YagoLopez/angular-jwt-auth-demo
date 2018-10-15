@@ -3,8 +3,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
-import { Role } from '../projects/angular-jwt-auth/src/lib/shared/models/user';
-import {isLocalStorageAvailable} from '../projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service';
+import { Role } from '../projects/angular-jwt-auth/src/lib/shared/models/role';
+import { isLocalStorageAvailable } from '../projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service';
 
 const createRegisteredUsers = () => {
   const users = [];

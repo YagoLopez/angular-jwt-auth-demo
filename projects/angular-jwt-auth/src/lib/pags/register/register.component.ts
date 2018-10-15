@@ -1,11 +1,10 @@
-﻿import {Component, OnInit, ViewChild} from '@angular/core';
-import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AlertService} from '../../shared/components/alert.service';
-import {UserService} from '../../shared/services/user.service';
-import {AuthService} from '../../shared/services/auth/auth.service';
-import {Role} from '../../shared/models/user';
-import {AlertComponent} from '../../shared/components/alert.component';
+﻿import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../../shared/components/alert.service';
+import { UserService } from '../../shared/services/user.service';
+import { AuthService } from '../../shared/services/auth/auth.service';
+import { Role } from '../../shared/models/role';
 
 @Component({
   templateUrl: 'register.component.html'
