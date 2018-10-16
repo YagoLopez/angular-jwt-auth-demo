@@ -26,6 +26,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pags_login_login_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pags/login/login.component */ "./projects/angular-jwt-auth/src/lib/pags/login/login.component.ts");
 /* harmony import */ var _pags_register_register_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pags/register/register.component */ "./projects/angular-jwt-auth/src/lib/pags/register/register.component.ts");
 /* harmony import */ var _pags_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pags/dashboard/dashboard.component */ "./projects/angular-jwt-auth/src/lib/pags/dashboard/dashboard.component.ts");
+// todo: implementar roles
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -100,7 +101,7 @@ var AngularJwtAuthModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--todo: repasar situacion de las imagenes-->\r\n<style>\r\n  .ico-trash {\r\n    width: 17px;\r\n    height: 17px;\r\n    margin-top: -4px;\r\n  }\r\n  .box-shadow {\r\n    border: 1px solid lightgrey;\r\n    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);\r\n  }\r\n  .text-muted:hover {\r\n    cursor: pointer;\r\n    color: navy !important;\r\n  }\r\n  .no-decoration { text-decoration: none }\r\n  .text-white-50 { color: rgba(255, 255, 255, .5); }\r\n  .bg-purple { background-color: #563d7c; }\r\n  .border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n  .lh-100 { line-height: 1; }\r\n  .lh-125 { line-height: 1.25; }\r\n  .padding-top { padding-top: 70px }\r\n</style>\r\n\r\n<angular-jwt-auth-alert></angular-jwt-auth-alert>\r\n\r\n<main role=\"main\" class=\"container padding-top\" style=\"max-width: 900px\">\r\n\r\n  <div class=\"d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow\">\r\n    <img class=\"mr-3\" src=\"https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg\" alt=\"\"\r\n         width=\"48\" height=\"48\">\r\n    <div class=\"lh-100\">\r\n      <h6 class=\"mb-0 text-white lh-100\">Dashboard</h6>\r\n      <small>User logged in: {{loggedinUser.firstName}} {{loggedinUser.lastName}}</small>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"my-3 p-3 bg-white rounded box-shadow\" *ngIf=\"users.length > 0\">\r\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">List of Registered Users</h6>\r\n    <div *ngFor=\"let user of users\" class=\"media text-muted pt-3\">\r\n      <img class=\"mr-2 rounded\" style=\"width: 32px; height: 32px;\" src=\"data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16641137fb4%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16641137fb4%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.703125%22%20y%3D%2216.9984375%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E\" data-holder-rendered=\"true\" alt=\"\">\r\n      <div class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\" style=\"font-size: smaller;\">\r\n        <div class=\"d-flex justify-content-between align-items-center w-100\">\r\n          <strong class=\"text-gray-dark\">{{user.email}}</strong>\r\n          <a href=\"javascript:void(0)\" (click)=\"deleteUser(user.id)\" title=\"Delete User\" class=\"no-decoration\">\r\n            Delete <!--suppress HtmlUnknownTarget-->\r\n            <img src=\"assets/garbage.png\" alt=\"Delete User\" class=\"ico-trash\">\r\n          </a>\r\n        </div>\r\n        <span class=\"d-block\">{{user.firstName}} {{user.lastName}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <p><a [routerLink]=\"['/login']\" class=\"btn btn-warning\">Logout</a></p>\r\n\r\n</main>"
+module.exports = "<style>\r\n  .ico-trash {\r\n    width: 17px;\r\n    height: 17px;\r\n    margin-top: -4px;\r\n  }\r\n  .box-shadow {\r\n    border: 1px solid lightgrey;\r\n    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);\r\n  }\r\n  .text-muted:hover {\r\n    cursor: pointer;\r\n    color: navy !important;\r\n  }\r\n  .no-decoration { text-decoration: none }\r\n  .text-white-50 { color: rgba(255, 255, 255, .5); }\r\n  .bg-purple { background-color: #563d7c; }\r\n  .border-bottom { border-bottom: 1px solid #e5e5e5; }\r\n  .lh-100 { line-height: 1; }\r\n  .lh-125 { line-height: 1.25; }\r\n  .padding-top { padding-top: 70px }\r\n</style>\r\n\r\n<angular-jwt-auth-alert></angular-jwt-auth-alert>\r\n\r\n<main role=\"main\" class=\"container padding-top\" style=\"max-width: 900px\">\r\n\r\n  <div class=\"d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow\">\r\n    <img class=\"mr-3\" src=\"https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-outline.svg\" alt=\"\"\r\n         width=\"48\" height=\"48\">\r\n    <div class=\"lh-100\">\r\n      <h6 class=\"mb-0 text-white lh-100\">Dashboard</h6>\r\n      <small>User logged in: {{loggedinUser.firstName}} {{loggedinUser.lastName}}</small>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"my-3 p-3 bg-white rounded box-shadow\" *ngIf=\"users.length > 0\">\r\n    <h6 class=\"border-bottom border-gray pb-2 mb-0\">List of Registered Users</h6>\r\n    <div *ngFor=\"let user of users\" class=\"media text-muted pt-3\">\r\n      <img class=\"mr-2 rounded\" style=\"width: 32px; height: 32px;\" src=\"data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2232%22%20height%3D%2232%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16641137fb4%20text%20%7B%20fill%3A%23007bff%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A2pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16641137fb4%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23007bff%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2211.703125%22%20y%3D%2216.9984375%22%3E32x32%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E\" data-holder-rendered=\"true\" alt=\"\">\r\n      <div class=\"media-body pb-3 mb-0 small lh-125 border-bottom border-gray\" style=\"font-size: smaller;\">\r\n        <div class=\"d-flex justify-content-between align-items-center w-100\">\r\n          <strong class=\"text-gray-dark\">{{user.email}}</strong>\r\n          <a href=\"javascript:void(0)\" (click)=\"deleteUser(user.id)\" title=\"Delete User\" class=\"no-decoration\">\r\n            Delete <!--suppress HtmlUnknownTarget-->\r\n            <img src=\"assets/garbage.png\" alt=\"Delete User\" class=\"ico-trash\">\r\n          </a>\r\n        </div>\r\n        <span class=\"d-block\">{{user.firstName}} {{user.lastName}}</span>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <p><a [routerLink]=\"['/login']\" class=\"btn btn-warning\">Logout</a></p>\r\n\r\n</main>"
 
 /***/ }),
 
@@ -300,7 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_components_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/components/alert.service */ "./projects/angular-jwt-auth/src/lib/shared/components/alert.service.ts");
 /* harmony import */ var _shared_services_user_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../shared/services/user.service */ "./projects/angular-jwt-auth/src/lib/shared/services/user.service.ts");
 /* harmony import */ var _shared_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/services/auth/auth.service */ "./projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service.ts");
-/* harmony import */ var _shared_models_user__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/models/user */ "./projects/angular-jwt-auth/src/lib/shared/models/user.ts");
+/* harmony import */ var _shared_models_role__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../shared/models/role */ "./projects/angular-jwt-auth/src/lib/shared/models/role.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -334,7 +335,7 @@ var RegisterComponent = /** @class */ (function () {
             lastName: ['lastName1', _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required],
             email: ['username1@domain.com', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email]],
             password: ['password1', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(this.PASS_MIN_LENGTH)]],
-            role: _shared_models_user__WEBPACK_IMPORTED_MODULE_6__["Role"].Administrator
+            role: _shared_models_role__WEBPACK_IMPORTED_MODULE_6__["Role"].Administrator
         });
     };
     Object.defineProperty(RegisterComponent.prototype, "f", {
@@ -663,29 +664,21 @@ var MockupBackendInterceptor = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./projects/angular-jwt-auth/src/lib/shared/models/user.ts":
+/***/ "./projects/angular-jwt-auth/src/lib/shared/models/role.ts":
 /*!*****************************************************************!*\
-  !*** ./projects/angular-jwt-auth/src/lib/shared/models/user.ts ***!
+  !*** ./projects/angular-jwt-auth/src/lib/shared/models/role.ts ***!
   \*****************************************************************/
-/*! exports provided: Role, User */
+/*! exports provided: Role */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Role", function() { return Role; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "User", function() { return User; });
-// todo: revisar roles
 var Role;
 (function (Role) {
     Role["Administrator"] = "Administrator";
     Role["Developer"] = "Developer";
 })(Role || (Role = {}));
-var User = /** @class */ (function () {
-    function User() {
-    }
-    return User;
-}());
-
 
 
 /***/ }),
@@ -1108,7 +1101,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser-dynamic */ "./node_modules/@angular/platform-browser-dynamic/fesm5/platform-browser-dynamic.js");
 /* harmony import */ var _app_app_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app/app.module */ "./src/app/app.module.ts");
 /* harmony import */ var _environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./environments/environment */ "./src/environments/environment.ts");
-/* harmony import */ var _projects_angular_jwt_auth_src_lib_shared_models_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../projects/angular-jwt-auth/src/lib/shared/models/user */ "./projects/angular-jwt-auth/src/lib/shared/models/user.ts");
+/* harmony import */ var _projects_angular_jwt_auth_src_lib_shared_models_role__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../projects/angular-jwt-auth/src/lib/shared/models/role */ "./projects/angular-jwt-auth/src/lib/shared/models/role.ts");
 /* harmony import */ var _projects_angular_jwt_auth_src_lib_shared_services_auth_auth_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service */ "./projects/angular-jwt-auth/src/lib/shared/services/auth/auth.service.ts");
 
 
@@ -1124,7 +1117,7 @@ var createRegisteredUsers = function () {
         lastName: 'lastName2',
         email: 'username2@domain.com',
         password: 'password2',
-        role: _projects_angular_jwt_auth_src_lib_shared_models_user__WEBPACK_IMPORTED_MODULE_4__["Role"].Developer
+        role: _projects_angular_jwt_auth_src_lib_shared_models_role__WEBPACK_IMPORTED_MODULE_4__["Role"].Developer
     };
     var user3 = {
         id: 3,
@@ -1132,7 +1125,7 @@ var createRegisteredUsers = function () {
         lastName: 'lastName3',
         email: 'username3@domain.com',
         password: 'password3',
-        role: _projects_angular_jwt_auth_src_lib_shared_models_user__WEBPACK_IMPORTED_MODULE_4__["Role"].Developer
+        role: _projects_angular_jwt_auth_src_lib_shared_models_role__WEBPACK_IMPORTED_MODULE_4__["Role"].Developer
     };
     users.push(user2);
     users.push(user3);

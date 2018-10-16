@@ -1,3 +1,6 @@
+// todo: borrar localStorage al terminar la app
+// todo: revisar el borrado de usuarios en "/dashboard"
+
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
