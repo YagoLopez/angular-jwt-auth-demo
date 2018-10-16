@@ -2,9 +2,7 @@
 
 # angular-jwt-auth
 
-This repository contains the **angular-jwt-auth** library and a demo of it: **angular-jwt-auth-demo**.
-
-The library has the following features:
+Angular library with the following features:
 
 - **Authentication** (User Registration and Login)
 - **Authorization** (Restricted zones)
@@ -24,24 +22,45 @@ Based on the work of Jason Watmore: http://jasonwatmore.com/post/2018/05/16/angu
 
 ## Installation
 
-- Download or clone the project
+- Download or clone the repository
 
-## Scripts
+## Execution
 
 There are available several scripts to run in the commnad line:
 
-- Run Application: `npm run start`
-- Test Application: `npm run test-app`
-- Test Library: `npm run test-lib`
-- Build Application: `npm run build-app`
-- Build Library: `npm run build-lib`
-- Build Application: `npm run build-app`
-- Build Library: `npm run build-lib`
-- Run End to End test: `npm run e2e`
-- Code Coverage: `npm run coverage` [Link](https://yagolopez.js.org/angular-jwt-auth-demo/coverage)
+- Run Application: `npm start`
+- Test Application: `npm test-app`
+- Test Library: `npm test-lib`
+- Build Application: `npm build-app`
+- Build Library: `npm build-lib`
+- Build Application: `npm build-app`
+- Build Library: `npm build-lib`
+- Run End to End tests: `npm e2e` 
+  - [View login.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/login.spec.js.mp4)
+  - [View register.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/login.spec.js.mp4)
+- Code Coverage: `npm coverage`
+  - [View coverage](https://yagolopez.js.org/angular-jwt-auth-demo/coverage)
+- List All Available Scripts: `npm run`
 
-## Components
+## Usage
 
-- Login Component
-- Register Component
-- Dashboard Component
+Use the components included in the library in your Angular app. 
+
+- The source code for the components is placed in the `/projects/angular-jwt-auth/src/lib` directory
+- The source code for the demo app is in the `/src` directory
+
+The components provided are the following:
+
+- **Register Component**
+  - Component for registering users
+  - Define a route and point your router to this component to use it. For example: `{route: '/register', component: RegisterComponent}`
+- **Login Component**
+  - Component to log in users 
+  - `<angular-jwt-auth-login><angular-jwt-auth-login/>`
+- **Alert Component**
+  - Component to show alert messages to users
+  - `<angular-jwt-auth-alert><angular-jwt-auth-alert/>`
+- **Dashboard Component**
+  - Demo component
+  - Define a route and point your router to this component to use it. For example: `{route: '/dashboard', component: DashboardComponent}`
+
