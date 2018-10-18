@@ -33,8 +33,6 @@ There are available several scripts to run in the commnad line:
 - Test Library: `npm test-lib`
 - Build Application: `npm build-app`
 - Build Library: `npm build-lib`
-- Build Application: `npm build-app`
-- Build Library: `npm build-lib`
 - Run End to End tests: `npm e2e` 
   - [View login.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/login.spec.js.mp4)
   - [View register.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/register.spec.js.mp4)
@@ -53,7 +51,7 @@ The components provided are the following:
 
 - **Register Component**
   - Component for registering users
-  - Define a route and point your router to this component to use it. For example: `{route: '/register', component: RegisterComponent}`
+  - Define a route and point your router to this component. For example: `{route: '/register', component: RegisterComponent}`
 - **Login Component**
   - Component to log in users 
   - `<angular-jwt-auth-login><angular-jwt-auth-login/>`
@@ -62,5 +60,5 @@ The components provided are the following:
   - `<angular-jwt-auth-alert><angular-jwt-auth-alert/>`
 - **Dashboard Component**
   - Demo component
-  - Define a route and point your router to this component to use it. For example: `{route: '/dashboard', component: DashboardComponent}`
+  - Define a route and point your router to this component. For example: `{route: '/dashboard', component: DashboardComponent}`
 
