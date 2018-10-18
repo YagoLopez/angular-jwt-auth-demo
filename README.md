@@ -37,7 +37,7 @@ There are available several scripts to run in the commnad line:
 - Build Library: `npm build-lib`
 - Run End to End tests: `npm e2e` 
   - [View login.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/login.spec.js.mp4)
-  - [View register.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/login.spec.js.mp4)
+  - [View register.spec.js](https://yagolopez.js.org/angular-jwt-auth-demo/cypress/videos/register.spec.js.mp4)
 - Code Coverage: `npm coverage`
   - [View coverage](https://yagolopez.js.org/angular-jwt-auth-demo/coverage)
 - List All Available Scripts: `npm run`
